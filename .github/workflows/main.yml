@@ -1,0 +1,25 @@
+name: 'Banco Web - CI'
+
+on:
+  worrkflow_dispatch:
+
+jobs:
+  teste:
+    runs-on:
+
+    env:
+      API_BASE_URL=http://localhost:3000
+      PORT=4000
+      
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+        
+      - name: iniciar servidor de mocks
+        uses: npm run mock-server
+        
+      - name: Iniciar o servidor
+        uses: npm run server
+
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
