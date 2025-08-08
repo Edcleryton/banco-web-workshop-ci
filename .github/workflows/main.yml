@@ -1,8 +1,7 @@
 name: 'Banco web - CI'
 
-# Gatilhos / Triggers
 on:
-  workflow_dispatch:
+   workflow_dispatch:
 
 jobs:
   tests:
