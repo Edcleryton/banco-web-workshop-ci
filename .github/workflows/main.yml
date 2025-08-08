@@ -14,12 +14,15 @@ jobs:
     steps:
       - name: Checkout do repositório
         uses: actions/checkout@v4
-        
-      - name: iniciar servidor de mocks
-        uses: npm run mock-server
-        
-      - name: Iniciar o servidor
-        uses: npm run server
 
       - name: Checkout do repositório
-        uses: actions/checkout@v4
+        uses: npm install
+        
+      - name: iniciar servidor de mocks
+        uses: npm run mock-server &
+        
+      - name: Iniciar o servidor
+        uses: npm run server &
+
+      - name: Checkout do repositório
+        uses: anpx cypress run
